@@ -40,6 +40,7 @@ class Post extends Component {
                 {this.renders.renderTitle()}
                 <Container>
                     <Grid container>{this.renders.renderText()}</Grid>
+                    {this.props.googleAuth ? <h1>Comments</h1> : ''}
                 </Container>
             </div>
         )
@@ -48,6 +49,7 @@ class Post extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
     post: state.posts[ownProps.match.params.id],
+    googleAuth: state.auth.googleAuth,
 })
 
 export default connect(mapStateToProps, { fetchPost })(Post);
