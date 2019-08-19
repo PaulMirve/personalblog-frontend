@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { CircularProgress, Button, Menu, MenuItem } from '@material-ui/core';
+import { connect } from 'react-redux';
 
-export default class GoogleAuth extends Component {
+import { googleAuthAuthenticated } from "../../actions/auth.actions";
+
+
+class GoogleAuth extends Component {
 
     state = { isSignedIn: null, name: null, isOpen: false, anchorEl: null }
 
@@ -13,6 +17,7 @@ export default class GoogleAuth extends Component {
             }).then(() => {
                 this.auth = window.gapi.auth2.getAuthInstance();
                 this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+                this.props.googleAuthAuthenticated(this.auth.isSignedIn.get());
                 if (this.auth.isSignedIn.get()) {
                     this.setState({ name: this.auth.currentUser.get().getBasicProfile().getName() });
                 }
@@ -49,6 +54,7 @@ export default class GoogleAuth extends Component {
 
     handlers = {
         onAuthChange: () => {
+            this.props.googleAuthAuthenticated(this.auth.isSignedIn.get());
             this.setState({ isSignedIn: this.auth.isSignedIn.get(), name: this.auth.currentUser.get().getBasicProfile().getName() });
         },
         handleButtonClick: (params) => {
@@ -61,7 +67,7 @@ export default class GoogleAuth extends Component {
         },
         handleSignOut: () => {
             this.auth.signOut();
-            this.setState({isOpen: false});
+            this.setState({ isOpen: false });
         },
 
     };
@@ -75,3 +81,5 @@ export default class GoogleAuth extends Component {
         )
     }
 }
+
+export default connect(null, { googleAuthAuthenticated })(GoogleAuth);

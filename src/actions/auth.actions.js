@@ -5,6 +5,7 @@ import authApi from '../api/PersonalBlogAuthAPI';
 export const IS_AUTHENTICATED = 'IS_AUTHENTICATED';
 export const NOT_AUTHENTICATED = 'NOT_AUTHENTICATED';
 export const ERROR = 'ERROR';
+export const GOOGLE_AUTH_AUTHENTICATED = 'GOOGLE_AUTH_AUTHENTICATED';
 
 export const login = (valores) => {
     return async dispatch => {
@@ -14,7 +15,7 @@ export const login = (valores) => {
             dispatch({ type: IS_AUTHENTICATED, payload: data.user });
             history.push('/blog');
         } catch (error) {
-            dispatch({type: ERROR});
+            dispatch({ type: ERROR });
         }
     }
 }
@@ -37,5 +38,13 @@ export const isAuthenticated = () => {
         }
     }
 }
+
+export const googleAuthAuthenticated = (payload) => {
+    return async dispatch => {
+        dispatch({ type: GOOGLE_AUTH_AUTHENTICATED, payload });
+    }
+
+}
+
 
 
