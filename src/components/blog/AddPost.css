@@ -1,0 +1,8 @@
+.codex-editor{
+    border-radius: 10px;
+    width: 100%;
+    border: 1px solid black;
+}
+.ce-toolbox__button, .ce-toolbar__settings-btn, .icon--plus{
+    color:rgb(22, 69, 159);
+}

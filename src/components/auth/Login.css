@@ -1,0 +1,32 @@
+.container{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center !important;
+    align-content: center;
+}
+
+.form-container{
+    border-radius: 10px;
+    padding: 60px 60px 120px 60px;
+    background-color: #FFF6D5 !important;
+    text-align: center;
+}
+
+.login-btn{
+    margin-top: 20px !important;
+}
+
+.avatar-container{
+    display: flex;
+    justify-content: center;
+}
+
+.icon-avatar{
+    margin: 10px 0 20px 0;
+    height: 70px !important;
+    width: 70px !important;
+}
+
+.icon{
+    font-size: 30px;
+}

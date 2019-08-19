@@ -1,0 +1,12 @@
+.paragraph, .list, .quote-text, .link, .table, .checklist{
+    font-size: 20px;
+}
+
+.image{
+    width: 100%;
+    height: auto;
+}
+
+.header{
+    font-size: 40px;
+}

@@ -1,0 +1,30 @@
+.post-card {
+    margin-top: 20px;
+    padding: 20px !important;
+    border: 3px solid  #02182B;;
+}
+
+.post-card:hover{
+    border: 3px solid #448FA3;
+}
+
+.post-card-title {
+    font-weight: 700 !important;
+    color: #02182B;
+}
+
+.add-post{
+    text-align: end;
+}
+
+.posts-container{
+    margin-top: 30px;
+}
+
+.post-card-link{
+    text-decoration: none;
+}
+
+.unstyled-link{
+    text-decoration: none;
+}
