@@ -39,3 +39,7 @@
 .nav-item-text, .nav-list-item-icon{
     color: white !important;
 }
+
+.active, .active button{
+    color: #448FA3 !important;
+}

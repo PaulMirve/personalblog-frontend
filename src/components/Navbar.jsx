@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppBar, Toolbar, Typography, Button, Hidden, Drawer, List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faFileSignature, faSignInAlt, faUser, faFileCode } from '@fortawesome/free-solid-svg-icons';
@@ -8,6 +8,7 @@ import { } from "@fortawesome/free-solid-svg-icons";
 
 import './Navbar.css';
 import { logout } from '../actions/auth.actions';
+import GoogleAuth from './auth/GoogleAuth';
 
 class FrontPage extends Component {
 
@@ -31,14 +32,28 @@ class FrontPage extends Component {
                     <Link to="/" className="nav-link nav-title"><Typography variant="h6">PaulMirve</Typography></Link>
                     <div className="buttons">
                         <Hidden smDown>
-                            <Link className="unstyled-link" to="/"><Button>Blog</Button></Link>
-                            <Link className="unstyled-link" to="/about-me"><Button>About Me</Button></Link>
-                            <Link className="unstyled-link" to="/projects"><Button>Projects</Button></Link>
-                            {
-                                this.props.isAuthenticated === true ?
-                                    <Button onClick={this.props.logout}>Logout</Button>
-                                    : <Link to="/login" className="nav-link"><Button className="nav-button">Login</Button></Link>
-                            }
+                            <NavLink
+                                activeClassName="active"
+                                className="unstyled-link"
+                                exact
+                                to="/"
+                            >
+                                <Button>Blog</Button>
+                            </NavLink>
+                            <NavLink
+                                activeClassName="active"
+                                className="unstyled-link"
+                                to="/about-me">
+                                <Button>About Me</Button>
+                            </NavLink>
+                            <NavLink
+                                activeClassName="active"
+                                className="unstyled-link"
+                                to="/projects"
+                            >
+                                <Button>Projects</Button>
+                            </NavLink>
+                            <GoogleAuth />
                         </Hidden>
                         <Hidden mdUp><FontAwesomeIcon icon={faBars} className="burguer-button" onClick={this.handlers.handleBurguerButtonClick} /></Hidden>
                     </div>
@@ -51,15 +66,40 @@ class FrontPage extends Component {
                     <List className="navbar-drawer-list">
                         <ListItem >
                             <ListItemIcon><FontAwesomeIcon icon={faFileSignature} className="nav-list-item-icon" /></ListItemIcon>
-                            <ListItemText><Link to="/blog" className="unstyled-link nav-item-text">Blog</Link ></ListItemText>
+                            <ListItemText>
+                                <NavLink
+                                    activeClassName="active"
+                                    exact
+                                    to="/"
+                                    className="unstyled-link nav-item-text"
+                                >
+                                    Blog
+                                </NavLink >
+                            </ListItemText>
                         </ListItem>
                         <ListItem >
                             <ListItemIcon><FontAwesomeIcon icon={faUser} className="nav-list-item-icon" /></ListItemIcon>
-                            <ListItemText><Link to="/about-me" className="unstyled-link nav-item-text">About Me</Link ></ListItemText>
+                            <ListItemText>
+                                <NavLink
+                                    activeClassName="active"
+                                    to="/about-me"
+                                    className="unstyled-link nav-item-text"
+                                >
+                                    About Me
+                                </NavLink >
+                            </ListItemText>
                         </ListItem>
                         <ListItem >
                             <ListItemIcon><FontAwesomeIcon icon={faFileCode} className="nav-list-item-icon" /></ListItemIcon>
-                            <ListItemText><Link to="/projects" className="unstyled-link nav-item-text">Projects</Link ></ListItemText>
+                            <ListItemText>
+                                <NavLink
+                                    activeClassName="active"
+                                    to="/projects"
+                                    className="unstyled-link nav-item-text"
+                                >
+                                    Projects
+                                </NavLink >
+                            </ListItemText>
                         </ListItem>
                         <ListItem className="nav-menu-item">
                             <ListItemIcon><FontAwesomeIcon icon={faSignInAlt} className="nav-list-item-icon" /></ListItemIcon>

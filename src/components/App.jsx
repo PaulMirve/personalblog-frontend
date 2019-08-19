@@ -11,6 +11,8 @@ import UpdatePost from './blog/UpdatePost';
 import RequireAuth from './auth/RequireAuth';
 import { CircularProgress } from '@material-ui/core';
 import Navbar from './Navbar';
+import AboutMe from './aboutme/AboutMe';
+import Projects from './projects/Projects';
 
 class App extends Component {
     componentDidMount() {
@@ -23,6 +25,8 @@ class App extends Component {
                     <Navbar />
                     <Route exact path="/" component={PostList} />
                     <Route exact path="/login" component={Login} />
+                    <Route exact path="/about-me" component={AboutMe} />
+                    <Route exact path="/projects" component={Projects} />
                     <Route exact path="/post/:id" component={Post} />
                     <Route exact path="/posts/new" component={RequireAuth(AddPost)} />
                     <Route exact path="/post/modify/:id" component={RequireAuth(UpdatePost)} />
