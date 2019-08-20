@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
-import { fetchPost } from "../../actions/posts.actions";
+import { fetchPost } from "../../../actions/posts.actions";
+import { fetchComments } from "../../../actions/comments.actions";
 import HTMLGenerator from './HTMLGenerator';
 import { Container, Grid } from '@material-ui/core';
 import PostHero from './PostHero';
+import Comment from '../comments/Comment';
+import AddComment from '../comments/AddComment';
 
 class Post extends Component {
     componentDidMount() {
         this.props.fetchPost(this.props.match.params.id);
+        this.props.fetchComments();
     }
 
     renders = {
@@ -40,7 +44,15 @@ class Post extends Component {
                 {this.renders.renderTitle()}
                 <Container>
                     <Grid container>{this.renders.renderText()}</Grid>
-                    {this.props.googleAuth ? <h1>Comments</h1> : ''}
+                    <h1>Comments</h1>
+                    <AddComment postId={this.props.match.params.id} />
+                    {
+                        this.props.comments.map((comment, index) => {
+                            return (
+                                <Comment key={index} data={comment} />
+                            );
+                        })
+                    }
                 </Container>
             </div>
         )
@@ -50,6 +62,7 @@ class Post extends Component {
 const mapStateToProps = (state, ownProps) => ({
     post: state.posts[ownProps.match.params.id],
     googleAuth: state.auth.googleAuth,
+    comments: Object.values(state.comments),
 })
 
-export default connect(mapStateToProps, { fetchPost })(Post);
+export default connect(mapStateToProps, { fetchPost, fetchComments })(Post);

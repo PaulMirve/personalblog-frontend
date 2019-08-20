@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { deletePost } from "../../actions/posts.actions";
+import { deletePost } from "../../../actions/posts.actions";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faTrashAlt, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon } from "react-share";

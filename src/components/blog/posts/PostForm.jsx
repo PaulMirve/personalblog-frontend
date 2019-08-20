@@ -4,7 +4,7 @@ import { Field, reduxForm } from "redux-form";
 import ImageTool from '@editorjs/image';
 import Editor from '@stfy/react-editor.js';
 import { TextField } from '@material-ui/core';
-import url from '../../api/url';
+import url from '../../../api/url';
 
 import './PostForm.css';
 

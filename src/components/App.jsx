@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
 import { connect } from 'react-redux';
 
-import PostList from './blog/PostList';
+import PostList from './blog/posts/PostList';
 import Login from './auth/Login';
 import { isAuthenticated } from '../actions/auth.actions';
-import Post from './blog/Post';
-import AddPost from './blog/AddPost';
-import UpdatePost from './blog/UpdatePost';
+import Post from './blog/posts/Post';
+import AddPost from './blog/posts/AddPost';
+import UpdatePost from './blog/posts/UpdatePost';
 import RequireAuth from './auth/RequireAuth';
 import { CircularProgress } from '@material-ui/core';
 import Navbar from './Navbar';

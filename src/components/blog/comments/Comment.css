@@ -1,0 +1,16 @@
+.comment-textarea {
+    width: 100%;
+    max-width: 100%;
+    height: 80px;
+    max-height: 80px;
+}
+
+.comment-button {
+    text-align: right;
+}
+
+@media (max-width: 400px) {
+    .comment-button {
+        text-align: center;
+    }
+}

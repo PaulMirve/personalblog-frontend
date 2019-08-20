@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './AddPost.css';
-import { savePost } from '../../actions/posts.actions';
+import { savePost } from '../../../actions/posts.actions';
 import PostForm from './PostForm';
 
 class AddPost extends Component {

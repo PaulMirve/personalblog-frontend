@@ -5,7 +5,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 import Post from './PostCard';
-import { fetchPosts } from '../../actions/posts.actions';
+import { fetchPosts } from '../../../actions/posts.actions';
 import { Container } from '@material-ui/core';
 import './PostList.css';
 
