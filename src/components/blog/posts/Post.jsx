@@ -61,7 +61,6 @@ class Post extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
     post: state.posts[ownProps.match.params.id],
-    googleAuth: state.auth.googleAuth,
     comments: Object.values(state.comments),
 })
 

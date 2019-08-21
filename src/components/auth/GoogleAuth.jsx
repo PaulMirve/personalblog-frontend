@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { CircularProgress, Button, Menu, MenuItem } from '@material-ui/core';
 import { connect } from 'react-redux';
 
-import { googleAuthAuthenticated } from "../../actions/auth.actions";
-
-
 class GoogleAuth extends Component {
 
     state = { isSignedIn: null, name: null, isOpen: false, anchorEl: null }
@@ -17,7 +14,6 @@ class GoogleAuth extends Component {
             }).then(() => {
                 this.auth = window.gapi.auth2.getAuthInstance();
                 this.setState({ isSignedIn: this.auth.isSignedIn.get() });
-                this.props.googleAuthAuthenticated(this.auth.isSignedIn.get());
                 if (this.auth.isSignedIn.get()) {
                     this.setState({ name: this.auth.currentUser.get().getBasicProfile().getName() });
                 }
@@ -31,7 +27,10 @@ class GoogleAuth extends Component {
             if (this.state.isSignedIn === null) {
                 return <CircularProgress />
             } else if (this.state.isSignedIn) {
-                return <Button onClick={(e) => this.setState({ isOpen: true, anchorEl: e.target })}>{this.state.name}</Button>
+                return (
+                    <Button onClick={(e) => this.setState({ isOpen: true, anchorEl: e.target })}>
+                        {this.state.name ? this.state.name : ''}
+                    </Button>)
             } else {
                 return <Button onClick={this.handlers.handleSingIn}>Sign In</Button>
             };
@@ -54,7 +53,6 @@ class GoogleAuth extends Component {
 
     handlers = {
         onAuthChange: () => {
-            this.props.googleAuthAuthenticated(this.auth.isSignedIn.get());
             this.setState({ isSignedIn: this.auth.isSignedIn.get(), name: this.auth.currentUser.get().getBasicProfile().getName() });
         },
         handleButtonClick: (params) => {
@@ -82,4 +80,4 @@ class GoogleAuth extends Component {
     }
 }
 
-export default connect(null, { googleAuthAuthenticated })(GoogleAuth);
+export default connect(null, {})(GoogleAuth);
