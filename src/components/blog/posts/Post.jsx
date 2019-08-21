@@ -12,7 +12,7 @@ import AddComment from '../comments/AddComment';
 class Post extends Component {
     componentDidMount() {
         this.props.fetchPost(this.props.match.params.id);
-        this.props.fetchComments();
+        this.props.fetchComments(this.props.match.params.id);
     }
 
     renders = {

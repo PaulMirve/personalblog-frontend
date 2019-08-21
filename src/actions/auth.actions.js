@@ -13,7 +13,7 @@ export const login = (valores) => {
             const { data } = await api.post('/api/auth/login', valores);
             await localStorage.setItem('accessToken', data.token);
             dispatch({ type: IS_AUTHENTICATED, payload: data.user });
-            history.push('/blog');
+            history.push('/');
         } catch (error) {
             dispatch({ type: ERROR });
         }

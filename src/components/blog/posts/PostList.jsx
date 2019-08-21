@@ -21,7 +21,7 @@ class PostList extends Component {
                     {this.props.isAuthenticated ?
                         <div className="add-post">
                             <FontAwesomeIcon icon={faPlus} style={{marginRight: '5px'}} />
-                            <Link to="/posts/nuevo">New Post</Link>
+                            <Link to="/posts/new">New Post</Link>
                         </div> : ''}
                     {
                         this.props.posts.map(post => {

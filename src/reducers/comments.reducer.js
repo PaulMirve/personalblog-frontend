@@ -8,11 +8,12 @@ export default (state = initialState, { type, payload }) => {
     switch (type) {
 
         case FETCH_COMMENTS:
+
             let comments = {};
             payload.forEach(comment => {
                 comments[comment.comment_id] = comment;
             });
-            return { ...state, ...comments };
+            return { ...comments };
 
         case SAVE_COMMENT:
             return { ...state, [payload.comment_id]: payload };

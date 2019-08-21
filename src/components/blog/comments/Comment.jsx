@@ -54,7 +54,7 @@ class Comment extends Component {
     handlers = {
         handleEditSubmit: (text) => {
             this.props.updateComment(this.props.data.comment_id, text);
-            this.setState({editable: false});
+            this.setState({ editable: false });
         },
 
     }
@@ -100,11 +100,13 @@ class Comment extends Component {
 
 const formWrapped = reduxForm({ form: 'edit_form' })(Comment);
 
-const mapStateToProps = (state, ownProps) => ({
-    googleAuth: state.auth.googleAuth,
-    initialValues: {
-        text: ownProps.data.text
+const mapStateToProps = (state, ownProps) => {
+    return {
+        googleAuth: state.auth.googleAuth,
+        initialValues: {
+            text: ownProps.data.text
+        }
     }
-});
+};
 
 export default connect(mapStateToProps, { deleteComment, updateComment })(formWrapped);
