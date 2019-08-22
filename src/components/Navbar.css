@@ -40,6 +40,10 @@
     color: white !important;
 }
 
+.nav-menu-item button{
+    color: white;
+}
+
 .active, .active button{
     color: #448FA3 !important;
 }

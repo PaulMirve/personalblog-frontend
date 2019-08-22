@@ -54,6 +54,11 @@ class FrontPage extends Component {
                                 <Button>Projects</Button>
                             </NavLink>
                             <GoogleAuth />
+                            {
+                                this.props.isAuthenticated === true ?
+                                    <Button onClick={this.props.logout}>Logout</Button>
+                                    : ''
+                            }
                         </Hidden>
                         <Hidden mdUp><FontAwesomeIcon icon={faBars} className="burguer-button" onClick={this.handlers.handleBurguerButtonClick} /></Hidden>
                     </div>
@@ -103,12 +108,16 @@ class FrontPage extends Component {
                         </ListItem>
                         <ListItem className="nav-menu-item">
                             <ListItemIcon><FontAwesomeIcon icon={faSignInAlt} className="nav-list-item-icon" /></ListItemIcon>
-                            {
-                                this.props.isAuthenticated === true ?
-                                    <ListItemText onClick={this.props.logout} className="nav-item-text">Logout</ListItemText>
-                                    : <ListItemText><Link to="/login" className="unstyled-link nav-item-text">Login</Link></ListItemText>
-                            }
+                            <GoogleAuth />
                         </ListItem>
+
+                        {
+                            this.props.isAuthenticated === true ?
+                                <ListItem>
+                                    <ListItemText onClick={this.props.logout} className="nav-item-text">Logout</ListItemText>
+                                </ListItem> : ''
+                        }
+
                     </List>
                 </Drawer>
             </AppBar >

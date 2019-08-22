@@ -5,12 +5,34 @@
     max-height: 80px;
 }
 
+.comment-card {
+    margin-bottom: 20px !important;
+}
+
+.comment-text {
+    padding: 0 20px !important;
+}
+
+.comments-section {
+    padding: 0 80px;
+}
+
 .comment-button {
     text-align: right;
+    margin-top: 5px !important;
+}
+
+.comment-button button {
+    background-color: #448FAE;
+    font-weight: 700;
 }
 
 @media (max-width: 400px) {
     .comment-button {
         text-align: center;
+    }
+
+    .comments-section {
+        padding: 0 10px;
     }
 }

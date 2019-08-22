@@ -27,13 +27,15 @@ class Login extends Component {
                     <Grid container className="container">
                         <Grid item xs={12} md={6} className="form-container">
                             <div className="avatar-container">
-                                <Avatar className="icon-avatar"><FontAwesomeIcon className="icon" icon={faLock} /></Avatar>
+                                <Avatar className="icon-avatar" style={{backgroundColor:'#02182B'}}>
+                                    <FontAwesomeIcon className="icon" icon={faLock} />
+                                </Avatar>
                             </div>
                             <Typography variant="h3">Login</Typography>
                             {
                                 this.props.auth === 'error' ?
                                     <SnackbarContent
-                                        style={{backgroundColor:"red"}}
+                                        style={{ backgroundColor: "red" }}
                                         message="Usuario o contraseña equivocada"
                                     /> :
                                     ''
@@ -65,8 +67,9 @@ class Login extends Component {
                                     className="login-btn"
                                     fullWidth
                                     variant="contained"
+                                    style={{ backgroundColor: '#02182B', color: 'white' }}
                                 >
-                                    Entrar
+                                    Login
                                 </Button>
                             </form>
                         </Grid>

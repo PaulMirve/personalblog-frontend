@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Field, reduxForm } from "redux-form";
-import { Card, CardContent, Avatar, CardHeader, Button, CardActions } from '@material-ui/core';
+import { Card, CardContent, Avatar, CardHeader, Button, CardActions, Grid } from '@material-ui/core';
 import { deleteComment, updateComment } from "../../../actions/comments.actions";
 
+import './Comment.css';
+
 const months = [
-    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+    'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Diciember'
 ];
 
 class Comment extends Component {
@@ -66,10 +68,10 @@ class Comment extends Component {
     render() {
         const { author, text, created_date, author_image } = this.props.data;
         const date = new Date(created_date);
-        let formatDate = `${date.getDate()} de ${months[date.getMonth()]} del ${date.getFullYear()}`;
+        let formatDate = `${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`;
         return (
             <div>
-                <Card>
+                <Grid item xs={12} md={6} component={Card} className="comment-card" >
                     <CardHeader
                         avatar={
                             <Avatar src={author_image} />
@@ -78,7 +80,7 @@ class Comment extends Component {
                         title={author}
                         subheader={formatDate}
                     />
-                    <CardContent>
+                    <CardContent className="comment-text">
                         {
                             this.state.editable === true ?
                                 <Field
@@ -96,7 +98,7 @@ class Comment extends Component {
                             this.state.editable === true ? this.renders.renderEditButtons() : this.renders.renderButtons()
                         }
                     </CardActions>
-                </Card>
+                </Grid>
             </div>
         )
     }

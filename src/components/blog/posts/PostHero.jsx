@@ -10,7 +10,7 @@ import './PostHero.css';
 import { Button } from '@material-ui/core';
 
 const months = [
-    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+    'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Diciember'
 ];
 
 class PostHero extends Component {
@@ -44,7 +44,7 @@ class PostHero extends Component {
 
     render() {
         const date = new Date(this.props.date);
-        let formatDate = `${date.getDate()} de ${months[date.getMonth()]} del ${date.getFullYear()}`;
+        let formatDate = `${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`;
         return (
             <div className="hero">
                 <div className="hero-title">

@@ -4,14 +4,14 @@ import { Card, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 const months = [
-    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+    'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Diciember'
 ];
 
 class Post extends Component {
     render() {
         const { title, created_date } = this.props;
         const date = new Date(created_date);
-        let formatDate = `${date.getDate()} de ${months[date.getMonth()]} del ${date.getFullYear()}`;
+        let formatDate = `${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`;
         return (
             <div>
                 <Link className="post-card-link" to={`/post/${this.props.id}`}>

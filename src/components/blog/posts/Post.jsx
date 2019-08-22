@@ -44,7 +44,9 @@ class Post extends Component {
                 {this.renders.renderTitle()}
                 <Container>
                     <Grid container>{this.renders.renderText()}</Grid>
-                    <h1>Comments</h1>
+                </Container>
+                <div className="comments-section" >
+                    <h1 style={{fontSize: '50px'}}>Comments</h1>
                     <AddComment postId={this.props.match.params.id} />
                     {
                         this.props.comments.map((comment, index) => {
@@ -53,7 +55,7 @@ class Post extends Component {
                             );
                         }).reverse()
                     }
-                </Container>
+                </div>
             </div>
         )
     }

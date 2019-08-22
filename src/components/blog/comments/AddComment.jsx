@@ -10,7 +10,7 @@ class AddComment extends Component {
     renders = {
         renderTextArea: ({ input, meta: { touched, error }, ...custom }) => {
             return (
-                <textarea cols="30" rows="10" {...input} {...custom} />
+                <textarea cols="30" rows="10" placeholder="Add a comment" {...input} {...custom} />
             );
         }
 
@@ -28,14 +28,18 @@ class AddComment extends Component {
                 post: this.props.postId,
                 text: comment
             }
-            this.props.saveComment(comm);
+            if (this.props.googleUser.isSigned === true) {
+                this.props.saveComment(comm);
+            } else {
+                window.gapi.auth2.getAuthInstance().signIn();
+            }
         }
 
     }
 
     render() {
         return (
-            <div>
+            <div style={{ marginBottom: '20px' }}>
                 <Grid item xs={12} md={5}>
                     <Field
                         component={this.renders.renderTextArea}
