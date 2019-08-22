@@ -51,7 +51,7 @@ class Post extends Component {
                             return (
                                 <Comment key={index} data={comment} />
                             );
-                        })
+                        }).reverse()
                     }
                 </Container>
             </div>

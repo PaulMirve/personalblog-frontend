@@ -4,6 +4,10 @@ import { Field, reduxForm } from "redux-form";
 import { Card, CardContent, Avatar, CardHeader, Button, CardActions } from '@material-ui/core';
 import { deleteComment, updateComment } from "../../../actions/comments.actions";
 
+const months = [
+    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+];
+
 class Comment extends Component {
 
     state = { editable: false }
@@ -60,19 +64,19 @@ class Comment extends Component {
     }
 
     render() {
-        const { author, text, created_date } = this.props.data;
+        const { author, text, created_date, author_image } = this.props.data;
+        const date = new Date(created_date);
+        let formatDate = `${date.getDate()} de ${months[date.getMonth()]} del ${date.getFullYear()}`;
         return (
             <div>
                 <Card>
                     <CardHeader
                         avatar={
-                            <Avatar>
-                                P
-                             </Avatar>
+                            <Avatar src={author_image} />
                         }
 
                         title={author}
-                        subheader={created_date}
+                        subheader={formatDate}
                     />
                     <CardContent>
                         {

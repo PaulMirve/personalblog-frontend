@@ -17,13 +17,14 @@ class AddComment extends Component {
     };
 
     handlers = {
-        handleCommentClick: ({comment}) => {
+        handleCommentClick: ({ comment }) => {
             const date = new Date();
-
+            const { userName, userEmail, userImage } = this.props.googleUser;
             const comm = {
-                author: 'Paul Miranda Vega',
-                author_email: 'paul.mv396@gmail.com',
-                created_date: `${date.getFullYear()}-${ ('0' + (date.getMonth()+1)).slice(-2)}-${date.getDate()} ${date.toLocaleTimeString()}`,
+                author: userName,
+                author_email: userEmail,
+                author_image: userImage,
+                created_date: `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${date.getDate()} ${date.toLocaleTimeString()}`,
                 post: this.props.postId,
                 text: comment
             }
@@ -43,7 +44,7 @@ class AddComment extends Component {
                     />
                 </Grid>
                 <Grid item xs={12} md={5} className="comment-button">
-                    <Button                    
+                    <Button
                         onClick={this.props.handleSubmit(this.handlers.handleCommentClick)}
                     >
                         Comment
@@ -54,6 +55,10 @@ class AddComment extends Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    googleUser: state.auth.googleAuth
+})
+
 const formWrapped = reduxForm({ form: 'comment_form' })(AddComment);
 
-export default connect(null, { saveComment })(formWrapped);
+export default connect(mapStateToProps, { saveComment })(formWrapped);
