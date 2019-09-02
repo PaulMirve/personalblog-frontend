@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography, Button, Hidden, Drawer, List, ListItem, Li
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faFileSignature, faSignInAlt, faUser, faFileCode } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faFileSignature, faSignInAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import { } from "@fortawesome/free-solid-svg-icons";
 
 import './Navbar.css';
@@ -46,13 +46,6 @@ class FrontPage extends Component {
                                 to="/about-me">
                                 <Button>About Me</Button>
                             </NavLink>
-                            <NavLink
-                                activeClassName="active"
-                                className="unstyled-link"
-                                to="/projects"
-                            >
-                                <Button>Projects</Button>
-                            </NavLink>
                             <GoogleAuth />
                             {
                                 this.props.isAuthenticated === true ?
@@ -91,18 +84,6 @@ class FrontPage extends Component {
                                     className="unstyled-link nav-item-text"
                                 >
                                     About Me
-                                </NavLink >
-                            </ListItemText>
-                        </ListItem>
-                        <ListItem >
-                            <ListItemIcon><FontAwesomeIcon icon={faFileCode} className="nav-list-item-icon" /></ListItemIcon>
-                            <ListItemText>
-                                <NavLink
-                                    activeClassName="active"
-                                    to="/projects"
-                                    className="unstyled-link nav-item-text"
-                                >
-                                    Projects
                                 </NavLink >
                             </ListItemText>
                         </ListItem>

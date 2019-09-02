@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { Field, reduxForm } from "redux-form";
 import { Card, CardContent, Avatar, CardHeader, Button, CardActions, Grid } from '@material-ui/core';
 import { deleteComment, updateComment } from "../../../actions/comments.actions";
 
@@ -12,7 +11,7 @@ const months = [
 
 class Comment extends Component {
 
-    state = { editable: false }
+    state = { editable: false, text: '' }
 
     renders = {
         renderButtons: () => {
@@ -25,7 +24,7 @@ class Comment extends Component {
                             >
                                 Delete
                             </Button>
-                            <Button onClick={() => this.setState({ editable: true })}>
+                            <Button onClick={() => this.setState({ editable: true, text: this.props.data.text })}>
                                 Edit
                             </Button>
                         </div>
@@ -38,17 +37,17 @@ class Comment extends Component {
                 return (
                     <div>
                         <Button onClick={() => this.setState({ editable: false })}>Cancel</Button>
-                        <Button onClick={this.props.handleSubmit(this.handlers.handleEditSubmit)}>Save</Button>
+                        <Button onClick={this.handlers.handleEditSubmit}>Save</Button>
                     </div>
                 );
             }
         },
-        renderTextField: ({ input, label, meta: { touched, error }, ...custom }) => {
+        renderTextField: () => {
             return (
                 <textarea
-                    {...custom}
-                    {...input}
                     style={{ width: '100%', height: '30px' }}
+                    value={this.state.text}
+                    onChange={(e) => this.setState({ text: e.target.value })}
                     cols="30"
                     rows="10"
                 />
@@ -58,8 +57,8 @@ class Comment extends Component {
     };
 
     handlers = {
-        handleEditSubmit: (text) => {
-            this.props.updateComment(this.props.data.comment_id, text);
+        handleEditSubmit: () => {
+            this.props.updateComment(this.props.data.comment_id, { text: this.state.text });
             this.setState({ editable: false });
         },
 
@@ -83,11 +82,7 @@ class Comment extends Component {
                     <CardContent className="comment-text">
                         {
                             this.state.editable === true ?
-                                <Field
-                                    name="text"
-                                    component={this.renders.renderTextField}
-                                    text={text}
-                                />
+                                this.renders.renderTextField()
                                 :
                                 <p>{text}</p>
                         }
@@ -104,8 +99,6 @@ class Comment extends Component {
     }
 }
 
-const formWrapped = reduxForm({ form: 'edit_form' })(Comment);
-
 const mapStateToProps = (state, ownProps) => {
     return {
         googleAuth: state.auth.googleAuth,
@@ -115,4 +108,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, { deleteComment, updateComment })(formWrapped);
+export default connect(mapStateToProps, { deleteComment, updateComment })(Comment);

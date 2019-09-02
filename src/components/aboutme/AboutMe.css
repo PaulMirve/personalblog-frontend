@@ -1,0 +1,149 @@
+.avatar {
+    height: 300px !important;
+    width: 300px !important;
+}
+
+.am-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+.name{
+    font-size: 50px;
+}
+
+.caption {
+    text-align: center;
+    font-weight: 700;
+}
+
+.social-networks {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+}
+
+.social-networks div {
+    height: 80px !important;
+    width: 80px !important;
+    background-color: #02182B;
+}
+
+.social-networks div svg {
+    height: 50px !important;
+    width: 50px !important;
+}
+
+.social-networks div svg:hover {
+    color: #B0D7FF;
+}
+
+.body {
+    background-color: white;
+    height: 1200px;
+    padding: 60px;
+}
+
+.exp {
+    justify-items: center;
+    display: grid;
+}
+
+.title {
+    text-align: center;
+    font-size: 30px;
+}
+
+.card {
+    margin-top: 20px !important;
+    display: flex;
+    border: 1px solid black;
+    min-height: 180px;
+    background-color: #D8D5DB;
+}
+
+.card-date {
+    font-family: 'Fredoka One', cursive;
+    font-size: 25px;
+    background-color: #2D3142;
+    color: #B0D7FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-description {
+    padding: 0 30px;
+}
+
+
+.experience-card {
+    flex-direction: column;
+}
+
+.techs {
+    overflow: scroll;
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px
+}
+
+.tech-img {
+    width: 100px;
+    height: 100px;
+}
+
+.languages{
+    padding: 0 30px;
+}
+
+.languages div div{
+    background-color: #B0D7FF;
+}
+
+.languages div div div{
+    background-color: #2D3142;
+}
+
+
+@media (max-width: 400px) {
+    .am-hero {
+        padding: 20px;
+    }
+
+    .avatar {
+        height: 200px !important;
+        width: 200px !important;
+    }
+
+    .social-networks {
+        width: 100%;
+    }
+
+    .social-networks div {
+        height: 60px !important;
+        width: 60px !important;
+    }
+
+    .social-networks div svg {
+        height: 40px !important;
+        width: 40px !important;
+    }
+
+    .body {
+        height: 1200px;
+        padding: 10px;
+    }
+
+    .techs {
+        padding: 0;
+    }
+
+    .title{
+        font-size: 20px;
+    }
+}
