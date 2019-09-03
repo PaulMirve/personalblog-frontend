@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://paulmirve.github.io/personalblog-frontend",
   "dependencies": {
     "@editorjs/image": "^2.3.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
@@ -13,6 +14,7 @@
     "@stfy/react-editor.js": "^0.1.5",
     "animate.css": "^3.7.2",
     "axios": "^0.19.0",
+    "gh-pages": "^2.1.1",
     "normalize.css": "^8.0.1",
     "radium": "^0.25.2",
     "react": "^16.8.6",
@@ -31,7 +33,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
