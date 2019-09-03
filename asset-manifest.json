@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/personalblog-frontend/static/css/main.238c4119.chunk.css",
-    "main.js": "/personalblog-frontend/static/js/main.d5b4d08d.chunk.js",
-    "main.js.map": "/personalblog-frontend/static/js/main.d5b4d08d.chunk.js.map",
+    "main.js": "/personalblog-frontend/static/js/main.8bbfe3ad.chunk.js",
+    "main.js.map": "/personalblog-frontend/static/js/main.8bbfe3ad.chunk.js.map",
     "runtime~main.js": "/personalblog-frontend/static/js/runtime~main.1e43984f.js",
     "runtime~main.js.map": "/personalblog-frontend/static/js/runtime~main.1e43984f.js.map",
     "static/css/2.764ccc25.chunk.css": "/personalblog-frontend/static/css/2.764ccc25.chunk.css",
     "static/js/2.3ed31df5.chunk.js": "/personalblog-frontend/static/js/2.3ed31df5.chunk.js",
     "static/js/2.3ed31df5.chunk.js.map": "/personalblog-frontend/static/js/2.3ed31df5.chunk.js.map",
     "index.html": "/personalblog-frontend/index.html",
-    "precache-manifest.ff8c4fcc0059ebc4b36882c62b0b8946.js": "/personalblog-frontend/precache-manifest.ff8c4fcc0059ebc4b36882c62b0b8946.js",
+    "precache-manifest.764f9071c6b7894a12813f2b965b0b14.js": "/personalblog-frontend/precache-manifest.764f9071c6b7894a12813f2b965b0b14.js",
     "service-worker.js": "/personalblog-frontend/service-worker.js",
     "static/css/2.764ccc25.chunk.css.map": "/personalblog-frontend/static/css/2.764ccc25.chunk.css.map",
     "static/css/main.238c4119.chunk.css.map": "/personalblog-frontend/static/css/main.238c4119.chunk.css.map",
