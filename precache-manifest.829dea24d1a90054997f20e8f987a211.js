@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "793ea17ad247593aa400001937e53d46",
+    "revision": "fd0ad33a4ea4ade218b40f9bce548c38",
     "url": "/personalblog-frontend/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/personalblog-frontend/static/css/2.764ccc25.chunk.css"
   },
   {
-    "revision": "3d7dcdab4f3ea0ae0754",
+    "revision": "db05163c06d5a8169194",
     "url": "/personalblog-frontend/static/css/main.238c4119.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/personalblog-frontend/static/js/2.3ed31df5.chunk.js"
   },
   {
-    "revision": "3d7dcdab4f3ea0ae0754",
-    "url": "/personalblog-frontend/static/js/main.3716b3b9.chunk.js"
+    "revision": "db05163c06d5a8169194",
+    "url": "/personalblog-frontend/static/js/main.c66257a0.chunk.js"
   },
   {
     "revision": "706b6e07a852035a274a",
